@@ -14,6 +14,8 @@ using namespace std;
 // ----------------------------------------------------------------
 int main() {
 
+    cout << " ... starting projectNPT ... " << endl;
+
     vector<Record> records;
     cout << "initial size : " << records.size() << endl;
 
@@ -48,6 +50,8 @@ int main() {
 	//t.tempPerDay();
 	//t.hotCold();
 	//t.tempPerYear(2050);
+
+    cout << " ... ending projectNPT ... " << endl;
 
     return 0;
 }
