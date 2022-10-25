@@ -1,0 +1,8 @@
+Our 3 analysis:
+- 1 day of the year every year
+- Mean temperature of year year
+- One season per year
+
+Nikolei: reading in the data
+Pinar: analysis
+Tilde: Plotting the data
