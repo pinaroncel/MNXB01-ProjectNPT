@@ -1,7 +1,7 @@
 
-Step 1 : Read data from input files by Nikolei
-Step 2 : Analyze data that have been read by Pinar
-Step 3 : Plot data that have been analyzed by Tilde
+Step 1 : Read data from input files        -> by Nikolei
+Step 2 : Analyze data that have been read  -> by Pinar
+Step 3 : Plot data that have been analyzed -> by Tilde
 
 Proposed models:
 (1) 1 day of the year every year
