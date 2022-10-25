@@ -1,19 +1,24 @@
 
 // Record.cpp
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 #include <iostream>
 
 #include "Record.h"
 
 using namespace std;
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// Class implementation for Record
+
+// Constructor function -> Creates a new instance
 Record::Record(
-            const int    year,
-            const int    month,
-            const int    day,
-            const double temp,
-            const double tempUrban,
-            const int    dataId
+            int    year,
+            int    month,
+            int    day,
+            double temp,
+            double tempUrban,
+            int    dataId
         )
 {
         _year      = year;
@@ -24,12 +29,14 @@ Record::Record(
         _dataId    = dataId;
 }
 // ----------------------------------------------------------------
+// Prints data stored in this object
 void Record::print() const {
     cout << year()      << "\t"
          << month()     << "\t"
          << day()       << "\t"
-         << temp()      << "°C\t" 
-         << tempUrban() << "°C\t" 
+         << temp()      << "\t" 
+         << tempUrban() << "\t" 
          << dataId()    << endl;
 }
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
