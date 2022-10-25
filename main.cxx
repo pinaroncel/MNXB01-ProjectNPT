@@ -1,11 +1,24 @@
 
 // main.cxx
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 #include <iostream>
 #include <string>
 #include <vector>
+
+// #include "inc/Analyze.h"
+// #include "inc/Plot.h"
+// #include "inc/Read.h"
+// #include "inc/Record.h"
+
+#include "src/Analyze.cxx"
+#include "src/Plot.cxx"
+#include "src/Read.cxx"
+#include "src/Record.cxx"
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
 using namespace std;
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
 int main() {
   
@@ -29,8 +42,10 @@ int main() {
 
         // Plot data that has been analyzed -> Model 3
 
-        cout << " ... ending projectNPT ... " endl;
-
+        cout << " ... ending projectNPT ... " << endl;
+    }
+    
     return 0;
 }
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
