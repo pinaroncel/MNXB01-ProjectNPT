@@ -16,7 +16,7 @@ void project() {
     cout << " ... starting projectNPT ... " << endl;
 
 	// Store the path to data file here
-    const string pathToFile = "/home/path/to/file/";
+    const string pathToFile = "/in/uppsala_tm_1722-2020.dat";
 
 	// Instantiate analysis object
     tempTrender t(pathToFile);
