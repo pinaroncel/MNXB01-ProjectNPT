@@ -1,12 +1,14 @@
 
 // tempTrender.h
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 #ifndef TEMPTRENDER_H
 #define TEMPTRENDER_H
 
 #include <string>
 
 using namespace std;
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
 class tempTrender {
 
@@ -20,17 +22,24 @@ class tempTrender {
 	    // Destructor
         ~tempTrender() {}
 
-	    // void tempOnDay(int monthToCalculate, int dayToCalculate) const; //Make a histogram of the temperature on this day
+	    // Make a histogram of the temperature on this day
+        // void tempOnDay(int monthToCalculate, int dayToCalculate) const;
 
-    	// void tempOnDay(int dateToCalculate) const; //Make a histogram of the temperature on this date
+    	// Make a histogram of the temperature on this date
+        // void tempOnDay(int dateToCalculate) const;
 
-        // void tempPerDay() const; //Make a histogram of the average temperature of each day of the year
+        // Make a histogram of the average temperature of each day of the year
+        // void tempPerDay() const;
 
-        // void hotCold() const; //Make a histogram of the hottest and coldest day of the year
+        // Make a histogram of the hottest and coldest day of the year
+        // void hotCold() const;
 
-        // void tempPerYear(int yearToExtrapolate) const; //Make a histogram of average temperature per year, then fit and extrapolate to the given year
+        // Make a histogram of average temperature per year, then fit and extrapolate to the given year
+        // void tempPerYear(int yearToExtrapolate) const;
 
 };
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 #endif // TEMPTRENDER_H
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------

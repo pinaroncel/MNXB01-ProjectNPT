@@ -1,11 +1,13 @@
 
 // tempTrender.cpp
 // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 #include <iostream>
 
 #include "tempTrender.h"
 
 using namespace std;
+// ----------------------------------------------------------------
 // ----------------------------------------------------------------
 tempTrender::tempTrender(const string& filePath) {
 	cout << "The user supplied " << filePath <<" as the path to the data file." << endl;
@@ -26,3 +28,5 @@ tempTrender::tempTrender(const string& filePath) {
 
 // Make a histogram of average temperature per year, then fit and extrapolate to the given year
 // void tempTrender::tempPerYear(int yearToExtrapolate) const {}
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
