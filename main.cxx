@@ -15,7 +15,7 @@ int main() {
   
         cout << " ... starting projectNPT ... " << endl;
 
-        // Read data file a single file
+        // Read data from a single file
 
         // Analyze data that has been read in -> Model 1
 
