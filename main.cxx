@@ -23,9 +23,9 @@ using namespace std;
 int main() {
   
     vector<string> files = {"file1.dat", "file2.dat", "file3.dat"};
-    
+
     for (auto file : files) {
-  
+
         cout << " ... starting projectNPT ... " << endl;
 
         // Read data from a single file
@@ -44,7 +44,7 @@ int main() {
 
         cout << " ... ending projectNPT ... " << endl;
     }
-    
+
     return 0;
 }
 // ----------------------------------------------------------------
