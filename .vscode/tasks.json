@@ -13,7 +13,7 @@
                 "-Wc++11-narrowing",
                 "-std=c++20",
                 "-stdlib=libc++",
-                "-I include",
+                "-I inc",
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
