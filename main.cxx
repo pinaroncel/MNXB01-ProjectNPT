@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 // ----------------------------------------------------------------
+using namespace std;
+// ----------------------------------------------------------------
 int main() {
   
     vector<string> files = {"file1.dat", "file2.dat", "file3.dat"};
