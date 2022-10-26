@@ -6,6 +6,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <TCanvas.h>
+#include <TPad.h>
+#include <TFrame.h>
+#include <TStyle.h>
+#include <TF1.h>
+#include <TH1.h>
+
 #include "Record.h"
 using namespace std;
 // ----------------------------------------------------------------
@@ -164,6 +171,22 @@ int main() {
     vector<double> maxTemps  = maxTempsPerYear(records);
     vector<double> diffTemps = diffTempsPerYear(records);
     vector<vector<double>> tempss = tempPerDay(records);
+
+    TGraph  g1 = make_graph_1(years, temps);
+    TCanvas c1 = new TCanvas("c1", "canvas for g1");
+    g1->Draw();
+    c1->SaveAs();
+
+
+    TGraph  g2 = make_graph_2(years, temps);
+    TCanvas c2 = new TCanvas("c2", "canvas for g2");
+    g2->Draw();
+    c2->SaveAs();
+
+    TGraph  g3 = make_graph_3(years, temps);
+    TCanvas c3 = new TCanvas("c3", "canvas for g3");
+    g3->Draw();
+    c3->SaveAs();
 
     cout << endl;
     cout << "nbr of records : " << records.size() << endl;
