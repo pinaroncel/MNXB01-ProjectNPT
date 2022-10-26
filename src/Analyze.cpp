@@ -1,4 +1,5 @@
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,7 +8,6 @@
 
 using namespace std;
 
-// move this function later...
 vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
@@ -18,14 +18,12 @@ vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
     return temps;
 }
 
-// move this function later...
 int nbrDaysPerMonth(int month) {
-    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {return 31;}
-    if (month == 4 || month == 6 || month == 9 || month == 11) {return 30;}
-    else {return 28;}
+    if (month == 2) {return 28;}
+    else if (month == 4 || month == 6 || month == 9 || month == 11) {return 30;}
+    else {return 31;}
 }
 
-// move this function later...
 vector<vector<double>> tempPerDay(const vector<Record>& records) {
     vector<vector<double>> tempss;
     for (int m = 1; m < 13; m++) {
@@ -38,9 +36,8 @@ vector<vector<double>> tempPerDay(const vector<Record>& records) {
     return tempss;
 }
 
-// move this function later...
-vector<int> getAllYears(const vector<Record>& records) {
-    vector<int> years;
+vector<double> getAllYears(const vector<Record>& records) {
+    vector<double> years;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
     for (int y = initialYear; y < finalYear+1; y++) {
@@ -49,7 +46,6 @@ vector<int> getAllYears(const vector<Record>& records) {
     return years;
 }
 
-// move this function later...
 vector<double> aveTempsPerYear(const vector<Record>& records) {
     vector<double> means;
     int initialYear = records.front().year();
@@ -69,7 +65,6 @@ vector<double> aveTempsPerYear(const vector<Record>& records) {
     return means;
 }
 
-// move this function later...
 vector<double> minTempsPerYear(const vector<Record>& records) {
     vector<double> mins;
     int initialYear = records.front().year();
@@ -88,7 +83,6 @@ vector<double> minTempsPerYear(const vector<Record>& records) {
     return mins;
 }
 
-// move this function later...
 vector<double> maxTempsPerYear(const vector<Record>& records) {
     vector<double> maxs;
     int initialYear = records.front().year();
@@ -107,7 +101,6 @@ vector<double> maxTempsPerYear(const vector<Record>& records) {
     return maxs;
 }
 
-// move this function later...
 vector<double> diffTempsPerYear(const vector<Record>& records) {
     vector<double> diffs;
     int initialYear = records.front().year();
@@ -129,4 +122,11 @@ vector<double> diffTempsPerYear(const vector<Record>& records) {
         diffs.push_back(diff);
     }
     return diffs;
+}
+
+double* convertVtoA(const vector<double>& vector) {
+    int n = vector.size();
+    double array[n];
+    copy(vector.begin(), vector.end(), array);
+    return array;
 }
