@@ -28,16 +28,18 @@ vector<Record> readFromFile(string filename) {
     return records;
 }
 // move this function later...
-vector<double> tempOnDay(vector<Record> records, int month, int day) {
+vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
-        if (record.month() == month && record.day() == day) { temps.push_back(record.temp()); }
+        if (record.month() == month && record.day() == day) {
+            temps.push_back(record.temp());
+        }
     }
     return temps;
 }
 
 // move this function later...
-vector<int> getAllYears(vector<Record> records) {
+vector<int> getAllYears(const vector<Record>& records) {
     vector<int> years;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
@@ -48,7 +50,7 @@ vector<int> getAllYears(vector<Record> records) {
 }
 
 // move this function later...
-vector<double> aveTempsPerYear(vector<Record> records) {
+vector<double> aveTempsPerYear(const vector<Record>& records) {
     vector<double> means;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
@@ -68,7 +70,7 @@ vector<double> aveTempsPerYear(vector<Record> records) {
 }
 
 // move this function later...
-vector<double> minTempsPerYear(vector<Record> records) {
+vector<double> minTempsPerYear(const vector<Record>& records) {
     vector<double> mins;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
@@ -87,7 +89,7 @@ vector<double> minTempsPerYear(vector<Record> records) {
 }
 
 // move this function later...
-vector<double> maxTempsPerYear(vector<Record> records) {
+vector<double> maxTempsPerYear(const vector<Record>& records) {
     vector<double> maxs;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
@@ -106,7 +108,7 @@ vector<double> maxTempsPerYear(vector<Record> records) {
 }
 
 // move this function later...
-vector<double> diffTempsPerYear(vector<Record> records) {
+vector<double> diffTempsPerYear(const vector<Record>& records) {
     vector<double> diffs;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
