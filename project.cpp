@@ -173,6 +173,7 @@ int main() {
     for (auto temp : temps) {cout << temp << ", "; };
     cout << endl; cout << endl;
     cout << "nbr of days in temps : " << temps.size() << endl;
+    cout << endl;
 
     cout << "years : " << endl;
     for (auto year : years) {cout << year << ", "; };
