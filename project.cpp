@@ -23,7 +23,7 @@ int main() {
     vector<double> maxTemps  = maxTempsPerYear(records);
     vector<double> diffTemps = diffTempsPerYear(records);
 
-    vector<vector<double>> tempss = tempPerDay(records);
+    // vector<vector<double>> tempss = tempPerDay(records);
 
     double* tempsArray     = convertVtoA(temps);
     double* yearsArray     = convertVtoA(years);
