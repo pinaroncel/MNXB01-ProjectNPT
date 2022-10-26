@@ -26,8 +26,10 @@
 #include "TH2.h"
 #include "TGraph.h"
 
+using namespace std;
+
 // General function
-void make_graph(const vector<double>& years, const vector<double>& temps) {
+void make_graph(const vector<int>& years, const vector<double>& temps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), years, temps);
     g -> SetLineColor(4);
@@ -49,7 +51,7 @@ void make_graph(const vector<double>& years, const vector<double>& temps) {
 }
 
 // Makes min and max graph
-void make_graph_min_max(const vector<double>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
+void make_graph_min_max(const vector<int>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *gr_min = new TGraph (years.size(), years, minTemps);
     TGraph *gr_max = new TGraph (years.size(), years, maxTemps);
