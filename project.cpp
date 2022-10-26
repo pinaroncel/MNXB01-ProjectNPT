@@ -171,7 +171,7 @@ vector<double> diffTempsPerYear(const vector<Record>& records) {
 }
 
 // General function
-void make_graph(const vector<int>& years, const vector<double>& temps) {
+void make_graph(const vector<Double_t>& years, const vector<Double_t>& temps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), years, temps);
     g -> SetLineColor(4);
@@ -193,7 +193,7 @@ void make_graph(const vector<int>& years, const vector<double>& temps) {
 }
 
 // Makes min and max graph
-void make_graph_min_max(const vector<int>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
+void make_graph_min_max(const vector<Double_t>& years, const vector<Double_t>& minTemps, const vector<Double_t>& maxTemps, const vector<Double_t>& diffTemps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *gr_min = new TGraph (years.size(), years, minTemps);
     TGraph *gr_max = new TGraph (years.size(), years, maxTemps);
@@ -227,13 +227,13 @@ int main() {
 	string filename = "in/uppsala_tm_1722-2020.dat";
 
     vector<Record> records   = readFromFile(filename);
-    vector<double> temps     = tempOnDay(records, 8, 23);
-    vector<int>    years     = getAllYears(records);
-    vector<double> aveTemps  = aveTempsPerYear(records);
-    vector<double> minTemps  = minTempsPerYear(records);
-    vector<double> maxTemps  = maxTempsPerYear(records);
-    vector<double> diffTemps = diffTempsPerYear(records);
-    vector<vector<double>> tempss = tempPerDay(records);
+    vector<Double_t> temps     = ( vector<Double_t> )tempOnDay(records, 8, 23);
+    vector<Double_t> years     = ( vector<Double_t> )getAllYears(records);
+    vector<Double_t> aveTemps  = ( vector<Double_t> )aveTempsPerYear(records);
+    vector<Double_t> minTemps  = ( vector<Double_t> )minTempsPerYear(records);
+    vector<Double_t> maxTemps  = ( vector<Double_t> )maxTempsPerYear(records);
+    vector<Double_t> diffTemps = ( vector<Double_t> )diffTempsPerYear(records);
+    vector<vector<Double_t>> tempss = ( vector<vector<Double_t>> )tempPerDay(records);
 
     // TString title1 = "temp on a given day";
     make_graph(years, temps);
