@@ -56,6 +56,7 @@ DATAFILE=$(basename $DATAFILEINPUT)
 
 if [ -f "$DATAFILE" ]; then
 	echo "File $DATAFILE found."
+	cp $DATAFILE clean_$DATAFILE
 
 elif [ -d "$DATAFILE" ]; then
 	directoryfile
@@ -69,21 +70,11 @@ fi
 STARTLINE=$(grep -n 'Datum' $DATAFILE | cut -d ":" -f 1) # Variable {STARTLINE} contains line number before data starts.
 STARTDATA=$(($STARTLINE + 1)) # Variable {STARTDATA} contains line number where data starts.
 
-echo
-echo "Creating temporary file..."
-TMPFILE=$(mktemp ./tmp.XXXXX)
+# Case: What if a file with clean data already? HOw does script proceed?
 
-# Copying original file into tmp.XXXXX
-cp $DATAFILE $TMPFILE
-
-# Manipulating tmp.XXXXX file data set to the desired state
+# Manipulating clean_$DATAFILE file data set to the desired state
 echo "Cleaning raw data set..."
-tail -n -$STARTDATA $DATAFILE | cut -d ";" -f 1-4 | sed 's/;/,/g' > $TMPFILE
+tail -n -$STARTDATA $DATAFILE | cut -d ";" -f 1-4 | sed 's/;/,/g' > clean_$DATAFILE
 
-#Copying cleaned data file into output file.
-cp $TMPFILE clean_$DATAFILE
-rm $TMPFILE
 echo
-echo "Temporary file removed."
 echo "Cleaned data is stored in clean_$DATAFILE."
-
