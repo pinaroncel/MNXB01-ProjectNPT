@@ -39,6 +39,26 @@ vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
 }
 
 // move this function later...
+int nbrDaysPerMonth(int month) {
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {return 31;}
+    if (month == 4 || month == 6 || month == 9 || month == 11) {return 30;}
+    else {return 28;}
+}
+
+// move this function later...
+vector<vector<double>> tempPerDay(const vector<Record>& records) {
+    vector<vector<double>> tempss;
+    for (int m = 1; m < 13; m++) {
+        int nbrDays = nbrDaysPerMonth(m);
+        for (int d = 1; d < nbrDays+1; d++) {
+            vector<double> temps = tempOnDay(records, m, d);
+            tempss.push_back(temps);
+        }
+    }
+    return tempss;
+}
+
+// move this function later...
 vector<int> getAllYears(const vector<Record>& records) {
     vector<int> years;
     int initialYear = records.front().year();
@@ -143,6 +163,7 @@ int main() {
     vector<double> minTemps  = minTempsPerYear(records);
     vector<double> maxTemps  = maxTempsPerYear(records);
     vector<double> diffTemps = diffTempsPerYear(records);
+    vector<vector<double>> tempss = tempPerDay(records);
 
     cout << endl;
     cout << "nbr of records : " << records.size() << endl;
@@ -151,6 +172,7 @@ int main() {
     cout << "temps on a single day : " << endl;
     for (auto temp : temps) {cout << temp << ", "; };
     cout << endl; cout << endl;
+    cout << "nbr of days in temps : " << temps.size() << endl;
 
     cout << "years : " << endl;
     for (auto year : years) {cout << year << ", "; };
@@ -171,6 +193,9 @@ int main() {
     cout << "diff temps : " << endl;
     for (auto diffTemp : diffTemps) {cout << diffTemp << ", "; };
     cout << endl; cout << endl;
+
+    cout << "nbr of days in tempss : " << tempss.size() << endl;
+    cout << "nbr of temps in a day : " << tempss.back().size() << endl;
 
     return 0;
 
