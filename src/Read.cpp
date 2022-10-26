@@ -6,6 +6,8 @@
 
 #include "Record.h"
 
+using namespace std;
+
 vector<Record> readFromFile(string filename) {
     vector<Record> records;
     ifstream input(filename);
