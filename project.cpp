@@ -10,6 +10,23 @@
 using namespace std;
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
+vector<Record> readFromFile(string filename) {
+    vector<Record> records;
+    ifstream input(filename);
+    string line;
+    while(getline(input, line)) {
+        int    year      = stoi(line.substr(0, 4));
+        int    month     = stoi(line.substr(5, 3));
+        int    day       = stoi(line.substr(8, 3));
+        double temp      = stod(line.substr(11, 6));
+        double tempUrban = stod(line.substr(17, 6));
+        int    dataId    = stoi(line.substr(23, 2));
+        Record record = Record(year, month, day, temp, tempUrban, dataId);
+        records.push_back(record);
+    }
+    return records;
+}
+
 vector<double> tempOnDay(vector<Record> records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
@@ -19,130 +36,133 @@ vector<double> tempOnDay(vector<Record> records, int month, int day) {
 }
 
 vector<int> getAllYears(vector<Record> records) {
-    vector<int> allYears;
+    vector<int> years;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
-    for (int thisYear = initialYear; thisYear < finalYear+1; thisYear++) {
-        allYears.push_back(thisYear);
+    for (int y = initialYear; y < finalYear+1; y++) {
+        years.push_back(y);
     }
-    return allYears;
+    return years;
 }
 
 vector<double> aveTempsPerYear(vector<Record> records) {
-    vector<double> allMeans;
+    vector<double> means;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
-    for (int thisYear = initialYear; thisYear < finalYear+1; thisYear++) {
-        double thisSum = 0;
+    for (int y = initialYear; y < finalYear+1; y++) {
+        double sum = 0;
         int nbrDays = 0;
         for (auto record : records) {
-            if (thisYear == record.year()) {
-                thisSum += record.temp();
+            if (y == record.year()) {
+                sum += record.temp();
                 nbrDays++;
             }
         }
-        double thisMean = thisSum / nbrDays;       
-        allMeans.push_back(thisMean);
+        double mean = sum / nbrDays;       
+        means.push_back(mean);
     }
-    return allMeans;
+    return means;
 }
 
 vector<double> minTempsPerYear(vector<Record> records) {
-    vector<double> allMins;
+    vector<double> mins;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
-    for (int thisYear = initialYear; thisYear < finalYear+1; thisYear++) {
-        double thisMin = 0;
+    for (int y = initialYear; y < finalYear+1; y++) {
+        double min = 0;
         for (auto record : records) {
-            if (thisYear == record.year()) {
-                if (record.temp() < thisMin) {
-                    thisMin = record.temp();
+            if (y == record.year()) {
+                if (record.temp() < min) {
+                    min = record.temp();
                 }
             }
         }
-        allMins.push_back(thisMin);
+        mins.push_back(min);
     }
-    return allMins;
+    return mins;
 }
 
 vector<double> maxTempsPerYear(vector<Record> records) {
-    vector<double> allMaxs;
+    vector<double> maxs;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
-    for (int thisYear = initialYear; thisYear < finalYear+1; thisYear++) {
-        double thisMax = 0;
+    for (int y = initialYear; y < finalYear+1; y++) {
+        double max = 0;
         for (auto record : records) {
-            if (thisYear == record.year()) {
-                if (record.temp() > thisMax) {
-                    thisMax = record.temp();
+            if (y == record.year()) {
+                if (record.temp() > max) {
+                    max = record.temp();
                 }
             }
         }
-        allMaxs.push_back(thisMax);
+        maxs.push_back(max);
     }
-    return allMaxs;
+    return maxs;
 }
 
 vector<double> diffTempsPerYear(vector<Record> records) {
-    vector<double> allDiffs;
+    vector<double> diffs;
     int initialYear = records.front().year();
     int finalYear   = records.back().year();
-    for (int thisYear = initialYear; thisYear < finalYear+1; thisYear++) {
-        double thisMin = 0;
-        double thisMax = 0;
+    for (int y = initialYear; y < finalYear+1; y++) {
+        double min = 0;
+        double max = 0;
         for (auto record : records) {
-            if (thisYear == record.year()) {
-                if (record.temp() < thisMin) {
-                    thisMin = record.temp();
+            if (y == record.year()) {
+                if (record.temp() < min) {
+                    min = record.temp();
                 }
-                if (record.temp() > thisMax) {
-                    thisMax = record.temp();
+                if (record.temp() > max) {
+                    max = record.temp();
                 }
             }
         }
-        double thisDiff = thisMax - thisMin;
-        allDiffs.push_back(thisDiff);
+        double thisDiff = max - min;
+        diffs.push_back(thisDiff);
     }
-    return allDiffs;
+    return diffs;
 }
-
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 int main() {
 
-    vector<Record> records;
-
 	string filename = "in/uppsala_tm_1722-2020.dat";
-    ifstream input(filename);
-    string line;
 
-    while(getline(input, line)) {
-
-        int    year      = stoi(line.substr(0, 4));
-        int    month     = stoi(line.substr(5, 3));
-        int    day       = stoi(line.substr(8, 3));
-        double temp      = stod(line.substr(11, 6));
-        double tempUrban = stod(line.substr(17, 6));
-        int    dataId    = stoi(line.substr(23, 2));
-
-        Record record = Record(year, month, day, temp, tempUrban, dataId);
-
-        records.push_back(record);
-    }
-
-    vector<double> temps = tempOnDay(records, 8, 23);
-    vector<int>    years = getAllYears(records);
-    vector<double> aveTemps = aveTempsPerYear(records);
-    vector<double> minTemps = minTempsPerYear(records);
-    vector<double> maxTemps = maxTempsPerYear(records);
+    vector<Record> records   = readFromFile(filename);
+    vector<double> temps     = tempOnDay(records, 8, 23);
+    vector<int>    years     = getAllYears(records);
+    vector<double> aveTemps  = aveTempsPerYear(records);
+    vector<double> minTemps  = minTempsPerYear(records);
+    vector<double> maxTemps  = maxTempsPerYear(records);
     vector<double> diffTemps = diffTempsPerYear(records);
 
-    cout << "TEMPS : "; for (auto temp : temps) {cout << temp << ", "; }; cout << endl; cout << endl;
-    cout << "YEARS : "; for (auto year : years) {cout << year << ", "; }; cout << endl; cout << endl;
-    cout << "aveTemps : "; for (auto aveTemp : aveTemps) {cout << aveTemp << ", "; }; cout << endl; cout << endl;
-    cout << "minTemps : "; for (auto minTemp : minTemps) {cout << minTemp << ", "; }; cout << endl; cout << endl;
-    cout << "maxTemps : "; for (auto maxTemp : maxTemps) {cout << maxTemp << ", "; }; cout << endl; cout << endl;
-    cout << "diffTemps : "; for (auto diffTemp : diffTemps) {cout << diffTemp << ", "; }; cout << endl; cout << endl;
+    cout << endl;
+    cout << "nbr of records : " << records.size() << endl;
+    cout << endl;
+
+    cout << "temps on a single day : " << endl;
+    for (auto temp : temps) {cout << temp << ", "; };
+    cout << endl; cout << endl;
+
+    cout << "years : " << endl;
+    for (auto year : years) {cout << year << ", "; };
+    cout << endl; cout << endl;
+
+    cout << "ave temps : " << endl;
+    for (auto aveTemp : aveTemps) {cout << aveTemp << ", "; };
+    cout << endl; cout << endl;
+
+    cout << "min temps : " << endl;
+    for (auto minTemp : minTemps) {cout << minTemp << ", "; };
+    cout << endl; cout << endl;
+
+    cout << "max temps : " << endl;
+    for (auto maxTemp : maxTemps) {cout << maxTemp << ", "; };
+    cout << endl; cout << endl;
+
+    cout << "diff temps : " << endl;
+    for (auto diffTemp : diffTemps) {cout << diffTemp << ", "; };
+    cout << endl; cout << endl;
 
     return 0;
 
