@@ -145,8 +145,8 @@ vector<double> diffTempsPerYear(const vector<Record>& records) {
                 }
             }
         }
-        double thisDiff = max - min;
-        diffs.push_back(thisDiff);
+        double diff = max - min;
+        diffs.push_back(diff);
     }
     return diffs;
 }
