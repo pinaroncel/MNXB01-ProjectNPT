@@ -3,3 +3,4 @@ inc/.DS_Store
 src/.DS_Store
 .DS_Store
 project
+test/test.cpp
