@@ -5,6 +5,8 @@
 
 #include "Record.h"
 
+using namespace std;
+
 // move this function later...
 vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
     vector<double> temps;

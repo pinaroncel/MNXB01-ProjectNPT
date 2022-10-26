@@ -9,6 +9,8 @@ vector<int> getAllYears(const vector<Record>& records);
 
 vector<double> aveTempsPerYear(const vector<Record>& records);
 
+vector<double> minTempsPerYear(const vector<Record>& records);
+
 vector<double> maxTempsPerYear(const vector<Record>& records);
 
 vector<double> diffTempsPerYear(const vector<Record>& records);
