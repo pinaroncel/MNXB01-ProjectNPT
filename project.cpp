@@ -10,6 +10,7 @@
 using namespace std;
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
+// move this function later...
 vector<Record> readFromFile(string filename) {
     vector<Record> records;
     ifstream input(filename);
@@ -26,7 +27,7 @@ vector<Record> readFromFile(string filename) {
     }
     return records;
 }
-
+// move this function later...
 vector<double> tempOnDay(vector<Record> records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
@@ -35,6 +36,7 @@ vector<double> tempOnDay(vector<Record> records, int month, int day) {
     return temps;
 }
 
+// move this function later...
 vector<int> getAllYears(vector<Record> records) {
     vector<int> years;
     int initialYear = records.front().year();
@@ -45,6 +47,7 @@ vector<int> getAllYears(vector<Record> records) {
     return years;
 }
 
+// move this function later...
 vector<double> aveTempsPerYear(vector<Record> records) {
     vector<double> means;
     int initialYear = records.front().year();
@@ -64,6 +67,7 @@ vector<double> aveTempsPerYear(vector<Record> records) {
     return means;
 }
 
+// move this function later...
 vector<double> minTempsPerYear(vector<Record> records) {
     vector<double> mins;
     int initialYear = records.front().year();
@@ -82,6 +86,7 @@ vector<double> minTempsPerYear(vector<Record> records) {
     return mins;
 }
 
+// move this function later...
 vector<double> maxTempsPerYear(vector<Record> records) {
     vector<double> maxs;
     int initialYear = records.front().year();
@@ -100,6 +105,7 @@ vector<double> maxTempsPerYear(vector<Record> records) {
     return maxs;
 }
 
+// move this function later...
 vector<double> diffTempsPerYear(vector<Record> records) {
     vector<double> diffs;
     int initialYear = records.front().year();
