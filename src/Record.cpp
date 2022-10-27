@@ -2,7 +2,7 @@
 // Record.cpp
 #include <iostream>
 
-#include "Record.h"
+#include "../include/Record.h"
 
 using namespace std;
 // Class implementation for Record
