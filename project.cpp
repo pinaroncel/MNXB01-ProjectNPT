@@ -12,19 +12,23 @@ using namespace std;
 
 int main() {
 
+// -----------------------------------------------------------------------------
     // STEP 0 : program start
+// -----------------------------------------------------------------------------
     cout << " ... starting ProjectNPT ... " << endl;
 
-	/* STEP 1 : READ by Nikolei
-     * read from file and store data in a vector of Record objects
-     */
+// -----------------------------------------------------------------------------
+	/* STEP 1 : READ -> by Nikolei
+     * read from file and store data in a vector of Record objects */
+// -----------------------------------------------------------------------------
     string filename = "in/uppsala_tm_1722-2020.dat";
 
     vector<Record> records = readFromFile(filename);
 
-    /* STEP 2 : ANALYZE by Pinar
-     * analyze data and create vectors to be used in plotting
-    */
+// -----------------------------------------------------------------------------
+    /* STEP 2 : ANALYZE -> by Pinar
+     * analyze data and create vectors to be used in plotting */
+// -----------------------------------------------------------------------------
     vector<double> temps     = tempsOnDay(records, 12, 24);
     vector<double> years     = getAllYears(records);
     vector<double> aveTemps  = aveTempsPerYear(records);
@@ -40,9 +44,10 @@ int main() {
     // double* maxTempsArray  = convertVtoA(maxTemps);
     // double* diffTempsArray = convertVtoA(diffTemps);
 
-    /* STEP 3 : PLOT by Tilde
-     * plot and save graphs using the processed data
-    */
+// -----------------------------------------------------------------------------
+    /* STEP 3 : PLOT -> by Tilde
+     * plot and save graphs using the processed data */
+// -----------------------------------------------------------------------------
     make_graph_day(years, temps);
     make_graph_ave(years, aveTemps);
     make_graph_min_max_diff(years, minTemps, maxTemps, diffTemps);
