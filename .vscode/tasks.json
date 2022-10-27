@@ -17,6 +17,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "src/Record.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
