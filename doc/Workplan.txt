@@ -22,5 +22,5 @@ MODELS
 --------------------------------------------------------------------------------
 (1) Christmas day for every year
 (2) Average temperature of the year for every year
-(3) Coldest (minTemp) and hottest (maxTemp) of the year together with the difference between the two (diffTemp) for each year
+(3) Coldest (minTemp) and hottest (maxTemp) of the year together with the difference between the two (diffTemp) for every year
 --------------------------------------------------------------------------------
