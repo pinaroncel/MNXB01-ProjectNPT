@@ -8,6 +8,7 @@
 
 #include "../include/Record.h"
 
+// -----------------------------------------------------------------------------
 // Returns a vector of Record objects storing the data from the input file
 std::vector<Record> readFromFile(std::string filename) {
 
@@ -31,6 +32,7 @@ std::vector<Record> readFromFile(std::string filename) {
         int    dataId    = stoi(line.substr(23, 2));
 
 		Record record = Record(year, month, day, temp, tempUrban, dataId);
+
         records.push_back(record);
 	}
     
