@@ -42,4 +42,4 @@ vector<double> diffTempsPerYear(const vector<Record>& records);
 
 // -----------------------------------------------------------------------------
 // Converts a vector into an array
-// double* convertVtoA(const vector<double>& vector);
+// double* toArray(const vector<double>& vector);
