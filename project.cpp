@@ -12,6 +12,8 @@ using namespace std;
 
 int main() {
 
+    cout << " ... starting ProjectNPT ... " << endl;
+
 	string filename = "in/uppsala_tm_1722-2020.dat";
 
     vector<Record> records   = readFromFile(filename);
@@ -35,5 +37,6 @@ int main() {
     make_graph_ave(years, aveTemps);
     make_graph_min_max_diff(years, minTemps, maxTemps, diffTemps);
 
+    cout << " ... ending ProjectNPT ... " << endl;
     return 0;
 }
