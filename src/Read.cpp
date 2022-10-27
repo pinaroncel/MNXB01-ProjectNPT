@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 
-#include "../include/Read.h"
 #include "../include/Record.h"
 
 // Returns a vector of Record objects storing the data from the input file
