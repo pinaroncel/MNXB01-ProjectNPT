@@ -1,10 +1,8 @@
-// Record.h
 #ifndef RECORD_H
 #define RECORD_H
 
 using namespace std;
 
-// Class definition for Record
 class Record {
     private:
         int    _year;
@@ -15,7 +13,7 @@ class Record {
         int    _dataId;
 
     public:
-        // Constructor function -> Creates a new instance
+
         Record(
             int    year,
             int    month,
@@ -25,7 +23,6 @@ class Record {
             int    dataId
         );
 
-        // Getter functions -> Returns attributes
         int    year()      const {return _year;}
         int    month()     const {return _month;}
         int    day()       const {return _day;}
@@ -33,7 +30,6 @@ class Record {
         double tempUrban() const {return _tempUrban;}
         int    dataId()    const {return _dataId;}
 
-        // Prints data stored in this object
         void print() const;
 };
 

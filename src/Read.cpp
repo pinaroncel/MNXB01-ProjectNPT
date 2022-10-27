@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "Record.h"
+#include "../include/Record.h"
 
 using namespace std;
 
