@@ -1,13 +1,12 @@
 
-// Record.cpp
+// Record.cpp by Nikolei
+
 #include <iostream>
 
 #include "../include/Record.h"
 
 using namespace std;
-// Class implementation for Record
 
-// Constructor function -> Creates a new instance
 Record::Record(
             int    year,
             int    month,
@@ -24,7 +23,6 @@ Record::Record(
             _dataId    = dataId;
             }
 
-// Prints data stored in this object
 void Record::print() const {
     cout << year()      << "\t"
          << month()     << "\t"
