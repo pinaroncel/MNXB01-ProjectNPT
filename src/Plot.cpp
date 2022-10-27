@@ -46,6 +46,8 @@ void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
+    gStyle->SetCanvasDefW(1280);
+    gStyle->SetCanvasDefH(720);
 
     g->Draw();
 
@@ -78,6 +80,8 @@ void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps)
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
+    gStyle->SetCanvasDefW(1280);
+    gStyle->SetCanvasDefH(720);
 
     g->Draw();
 
@@ -116,6 +120,8 @@ void make_graph_min_max_diff(const vector<double>& years, const vector<double>& 
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
+    gStyle->SetCanvasDefW(1280);
+    gStyle->SetCanvasDefH(720);
 
     TMultiGraph *mg = new TMultiGraph();
 
@@ -131,10 +137,11 @@ void make_graph_min_max_diff(const vector<double>& years, const vector<double>& 
     mg->Draw("APC");
 
     auto legend = new TLegend(0.8, 0.8, 0.99, 0.99);
-    legend->SetHeader("The Legend Title","C");
+    legend->SetHeader("Graph explanation","C");
     legend->AddEntry("g_min","Minimum temperature per year","L");
     legend->AddEntry("g_max","Maximum temperature per year","L");
     legend->AddEntry("g_diff","Difference btw the hottest and coldest days per year","L");
+    legend->SetTextSize(0.025);
     legend->Draw();
 
     c_min_max_diff->SaveAs("out/graph_min_max_diff.png");
