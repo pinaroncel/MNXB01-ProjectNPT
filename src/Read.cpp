@@ -10,7 +10,9 @@
 
 // Returns a vector of Record objects storing the data from the input file
 std::vector<Record> readFromFile(std::string filename) {
+
     std::vector<Record> records;
+
     std::ifstream input(filename);
 
 	// Check if file is opened:
@@ -19,6 +21,7 @@ std::vector<Record> readFromFile(std::string filename) {
 	}
 
     std::string line{};
+
     while(getline(input, line)) {
         int    year      = stoi(line.substr(0, 4));
         int    month     = stoi(line.substr(5, 3));
