@@ -40,13 +40,6 @@ void project() {
     vector<double> diffTemps = diffTempsPerYear(records);
     vector<vector<double>> tempss = tempsPerDay(records);
 
-    // double* tempsArray     = convertVtoA(temps);
-    // double* yearsArray     = convertVtoA(years);
-    // double* aveTempsArray  = convertVtoA(aveTemps);
-    // double* minTempsArray  = convertVtoA(minTemps);
-    // double* maxTempsArray  = convertVtoA(maxTemps);
-    // double* diffTempsArray = convertVtoA(diffTemps);
-
 // -----------------------------------------------------------------------------
 /* STEP 3 : PLOT -> by Tilde
  * plot and save graphs using the processed data */
