@@ -32,9 +32,9 @@ int main() {
     double* maxTempsArray  = convertVtoA(maxTemps);
     double* diffTempsArray = convertVtoA(diffTemps);
 
-    make_graph_av(yearsArray, tempsArray);
-    make_graph_day(yearsArray, aveTempsArray);
-    make_graph_min_max(yearsArray, minTempsArray, maxTempsArray, diffTempsArray);
+    make_graph_day(years, temps);
+    make_graph_ave(years, aveTemps);
+    make_graph_min_max(years, minTemps, maxTemps, diffTemps);
 
     return 0;
 }
