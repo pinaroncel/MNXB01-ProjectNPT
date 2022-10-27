@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// -----------------------------------------------------------------------------
 // Class definition for Record
 class Record {
 
@@ -44,5 +45,6 @@ class Record {
         // Prints the data stored in the Record object
         void print() const;
 };
+// -----------------------------------------------------------------------------
 
 #endif // RECORD_H
