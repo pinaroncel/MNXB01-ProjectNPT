@@ -9,5 +9,5 @@
 #include "Record.h"
 
 // -----------------------------------------------------------------------------
-// Reading the data file input and returns a vector of Record objects
+// Reading the input data file and returns a vector of Record objects
 std::vector<Record> readFromFile(std::string filename);
