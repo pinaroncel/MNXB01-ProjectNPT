@@ -18,7 +18,7 @@ int nbrDaysPerMonth(int month);
 
 // -----------------------------------------------------------------------------
 // Returns a vector of recorded temperatures on every day of the year
-vector<vector<double>> tempPerDay(const vector<Record>& records);
+vector<vector<double>> tempsPerDay(const vector<Record>& records);
 
 // -----------------------------------------------------------------------------
 // Returns a vector of all recorded years
