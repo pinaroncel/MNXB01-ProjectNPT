@@ -1,4 +1,6 @@
 
+// Plot.h by Tilde
+
 void make_graph_av(const vector<double>& years, const vector<double>& temps);
 
 void make_graph_day(const vector<double>& years, const vector<double>& temps);

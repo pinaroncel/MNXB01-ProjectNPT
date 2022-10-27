@@ -1,3 +1,6 @@
+
+// Record.h by Nikolei
+
 #ifndef RECORD_H
 #define RECORD_H
 
