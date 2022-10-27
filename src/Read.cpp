@@ -2,6 +2,7 @@
 // Read.cpp by Nikolei
 
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -31,6 +32,8 @@ vector<Record> readFromFile(string filename) {
 
         records.push_back(record);
     }
+
+    cout << "size of records: " << records.size() << endl;
 
     return records;
 }
