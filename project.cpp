@@ -32,8 +32,8 @@ int main() {
     double* maxTempsArray  = convertVtoA(maxTemps);
     double* diffTempsArray = convertVtoA(diffTemps);
 
-    make_graph(yearsArray, tempsArray);
-    make_graph(yearsArray, aveTempsArray);
+    make_graph_av(yearsArray, tempsArray);
+    make_graph_day(yearsArray, aveTempsArray);
     make_graph_min_max(yearsArray, minTempsArray, maxTempsArray, diffTempsArray);
 
     return 0;
