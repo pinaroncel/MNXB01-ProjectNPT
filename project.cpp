@@ -3,10 +3,10 @@
 #include <string>
 #include <vector>
 
-#include "Analyze.h"
-#include "Plot.h"
-#include "Read.h"
-#include "Record.h"
+#include "include/Analyze.h"
+#include "include/Plot.h"
+#include "include/Read.h"
+#include "include/Record.h"
 
 using namespace std;
 
