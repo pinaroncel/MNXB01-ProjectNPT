@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// -----------------------------------------------------------------------------
 // Class implementation for Record
 
 // Constructor method to instantiate a new Record object
@@ -35,3 +36,4 @@ void Record::print() const {
          << "tempUrban: " << tempUrban() << "\t" 
          << "dataId: "    << dataId()    << endl;
 }
+// -----------------------------------------------------------------------------
