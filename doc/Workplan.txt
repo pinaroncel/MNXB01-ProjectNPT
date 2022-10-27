@@ -9,9 +9,9 @@ ProjectNPT Workplan
 --------------------------------------------------------------------------------
 STEPS
 --------------------------------------------------------------------------------
-Step 1 : Read data from input file         -> by Nikolei
-Step 2 : Analyze data that have been read  -> by Pinar
-Step 3 : Plot data that have been analyzed -> by Tilde
+Step 1 : Clean and Read data from input file -> by Nikolei
+Step 2 : Analyze data that have been read    -> by Pinar
+Step 3 : Plot data that have been analyzed   -> by Tilde
 --------------------------------------------------------------------------------
 
 
