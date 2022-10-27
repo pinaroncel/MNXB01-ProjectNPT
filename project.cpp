@@ -57,5 +57,4 @@ void project() {
     // STEP 4 : program end
 // -----------------------------------------------------------------------------
     cout << " ... ending ProjectNPT ... " << endl;
-    // return 0;
 }
