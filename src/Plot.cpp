@@ -9,6 +9,7 @@
 #include "../include/Plot.h"
 #include "../include/Record.h"
 
+#include <TAxis.h>
 #include <TCanvas.h>
 #include <TF1.h>
 #include <TFrame.h>
@@ -25,11 +26,11 @@ void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(temps[0]));
     
-    g -> SetTitle("Temperature on Christmas day");
-    g -> SetLineColor(4);
+    g->SetTitle("Temperature on Christmas day");
+    g->SetLineColor(4);
 
-    g -> GetXaxis() -> SetTitle("Year");
-    g -> GetYaxis() -> SetTitle("Temperature");
+    g->GetXaxis()->SetTitle("Year");
+    g->GetYaxis()->SetTitle("Temperature");
 
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
@@ -52,10 +53,10 @@ void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps)
     auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(aveTemps[0]));
     
-    g -> SetLineColor(4);
-    g -> SetTitle() -> ("Average temperature per year");
-    g -> GetXaxis() -> SetTitle("Year");
-    g -> GetYaxis() -> SetTitle("Temperature");
+    g->SetLineColor(4);
+    g->SetTitle("Average temperature per year");
+    g->GetXaxis()->SetTitle("Year");
+    g->GetYaxis()->SetTitle("Temperature");
 
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
@@ -80,16 +81,16 @@ void make_graph_min_max_diff(const vector<double>& years, const vector<double>& 
     TGraph *g_max  = new TGraph(years.size(), &(years[0]), &(maxTemps[0]));
     TGraph *g_diff = new TGraph(years.size(), &(years[0]), &(diffTemps[0]));
     
-    g_min -> SetTitle("Minimum temperature per year");
-    g_max -> SetTitle("Maximum temperature per year");
-    g_diff -> SetTitle("Difference btw the hottest and coldest days per year");
+    g_min->SetTitle("Minimum temperature per year");
+    g_max->SetTitle("Maximum temperature per year");
+    g_diff->SetTitle("Difference btw the hottest and coldest days per year");
     
-    g_min -> SetLineColor(4);
-    g_max -> SetLineColor(2);
-    g_diff -> SetLineColor(7);
+    g_min->SetLineColor(4);
+    g_max->SetLineColor(2);
+    g_diff->SetLineColor(7);
     
-    g_min -> GetXaxis() -> SetTitle("Year");
-    g_min -> GetYaxis() -> SetTitle("Temperature");
+    g_min->GetXaxis()->SetTitle("Year");
+    g_min->GetYaxis()->SetTitle("Temperature");
 
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
