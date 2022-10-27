@@ -55,7 +55,7 @@ fi
 DATAFILE=$(basename $DATAFILEINPUT)
 
 if [ -f "$DATAFILE" ]; then
-	echo "File $DATAFILE found."
+	echo "File $DATAFILE found. Starting to clean data file."
 	cp $DATAFILE clean_$DATAFILE
 
 elif [ -d "$DATAFILE" ]; then
