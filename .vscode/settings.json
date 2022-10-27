@@ -112,7 +112,8 @@
         "MyClasses1.C": "cpp",
         "MyClasses2.C": "cpp",
         "MyClasses3.C": "cpp",
-        "plotting.C": "cpp"
+        "plotting.C": "cpp",
+        "rootlogon.C": "cpp"
     },
     "files.watcherExclude": {
         "**/target": true
