@@ -8,7 +8,7 @@ Project Directory Structure
 - out     : contains output files
 - src     : contains source code files
 
-- project.cpp
+- project.cpp : This is our main source file
 - rootlogon.C
 - ChangeLog
 - license
