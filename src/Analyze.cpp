@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// Returns a vector of recorded temperatures on the given day
 vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
@@ -18,15 +19,24 @@ vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
             temps.push_back(record.temp());
         }
     }
+    cout << "size of temps: " << temps.size() << endl;
     return temps;
 }
 
+// Returns the nbr of days of the given month
 int nbrDaysPerMonth(int month) {
-    if (month == 2) {return 28;}
-    else if (month == 4 || month == 6 || month == 9 || month == 11) {return 30;}
-    else {return 31;}
+    if (month == 2) {
+        return 28;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        return 30;
+    }
+    else {
+        return 31;
+    }
 }
 
+// Returns a vector of recorded temperatures on every day of the year
 vector<vector<double>> tempPerDay(const vector<Record>& records) {
     vector<vector<double>> tempss;
     for (int m = 1; m < 13; m++) {
@@ -36,9 +46,11 @@ vector<vector<double>> tempPerDay(const vector<Record>& records) {
             tempss.push_back(temps);
         }
     }
+    cout << "size of tempss: " << tempss.size() << endl;
     return tempss;
 }
 
+// Returns a vector of all recorded years
 vector<double> getAllYears(const vector<Record>& records) {
     vector<double> years;
     int initialYear = records.front().year();
@@ -46,9 +58,11 @@ vector<double> getAllYears(const vector<Record>& records) {
     for (int y = initialYear; y < finalYear+1; y++) {
         years.push_back(y);
     }
+    cout << "size of years: " << years.size() << endl;
     return years;
 }
 
+// Returns a vector of average temperatures of every year
 vector<double> aveTempsPerYear(const vector<Record>& records) {
     vector<double> means;
     int initialYear = records.front().year();
@@ -65,9 +79,11 @@ vector<double> aveTempsPerYear(const vector<Record>& records) {
         double mean = sum / nbrDays;       
         means.push_back(mean);
     }
+    cout << "size of means: " << means.size() << endl;
     return means;
 }
 
+// Returns a vector of min temperatures of every year = coldest days
 vector<double> minTempsPerYear(const vector<Record>& records) {
     vector<double> mins;
     int initialYear = records.front().year();
@@ -83,9 +99,11 @@ vector<double> minTempsPerYear(const vector<Record>& records) {
         }
         mins.push_back(min);
     }
+    cout << "size of mins: " << mins.size() << endl;
     return mins;
 }
 
+// Returns a vector of max temperatures of every year = hottest days
 vector<double> maxTempsPerYear(const vector<Record>& records) {
     vector<double> maxs;
     int initialYear = records.front().year();
@@ -101,9 +119,11 @@ vector<double> maxTempsPerYear(const vector<Record>& records) {
         }
         maxs.push_back(max);
     }
+    cout << "size of maxs: " << maxs.size() << endl;
     return maxs;
 }
 
+// Returns a vector of temperature differences of every year = the difference between the hottest and the coldest day of every year
 vector<double> diffTempsPerYear(const vector<Record>& records) {
     vector<double> diffs;
     int initialYear = records.front().year();
@@ -124,12 +144,16 @@ vector<double> diffTempsPerYear(const vector<Record>& records) {
         double diff = max - min;
         diffs.push_back(diff);
     }
+    cout << "size of diffs: " << diffs.size() << endl;
     return diffs;
 }
 
+// Converts a vector into an array
 double* convertVtoA(const vector<double>& vector) {
+    cout << "size of vector: " << vector.size() << endl;
     int n = vector.size();
     double array[n];
     copy(vector.begin(), vector.end(), array);
     return array;
+    cout << "size of array: " << n << endl;
 }
