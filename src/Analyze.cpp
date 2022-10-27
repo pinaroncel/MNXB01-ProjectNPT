@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+#include "../include/Analyze.h"
 #include "../include/Record.h"
 
 using namespace std;

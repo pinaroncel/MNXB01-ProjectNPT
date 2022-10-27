@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+#include "../include/Read.h"
 #include "../include/Record.h"
 
 using namespace std;

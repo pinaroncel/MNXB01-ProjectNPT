@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "../include/Plot.h"
 #include "../include/Record.h"
 
 #include <TPad.h>
