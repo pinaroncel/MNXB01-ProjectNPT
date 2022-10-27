@@ -1,9 +1,27 @@
 
-Step 1 : Read data from input files        -> by Nikolei
+--------------------------------------------------------------------------------
+ProjectNPT Workplan
+--------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------------
+STEPS
+--------------------------------------------------------------------------------
+Step 1 : Read data from input file         -> by Nikolei
 Step 2 : Analyze data that have been read  -> by Pinar
 Step 3 : Plot data that have been analyzed -> by Tilde
+--------------------------------------------------------------------------------
 
+
+
+
+--------------------------------------------------------------------------------
+MODELS
+--------------------------------------------------------------------------------
 Proposed models:
-(1) 1 day of the year every year
-(2) Mean temperature of year every year
-(3) One season per year
+(1) Christmas day for every year
+(2) Average temperature of the year for every year
+(3) Coldest (minTemp) and hottest (maxTemp) of the year together with the difference between the two (diffTemp) for each year
+--------------------------------------------------------------------------------
