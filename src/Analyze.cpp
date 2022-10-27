@@ -42,7 +42,7 @@ vector<vector<double>> tempPerDay(const vector<Record>& records) {
     for (int m = 1; m < 13; m++) {
         int nbrDays = nbrDaysPerMonth(m);
         for (int d = 1; d < nbrDays+1; d++) {
-            vector<double> temps = tempOnDay(records, m, d);
+            vector<double> temps = tempsOnDay(records, m, d);
             tempss.push_back(temps);
         }
     }
