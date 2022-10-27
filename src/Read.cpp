@@ -9,18 +9,18 @@
 #include "../include/Read.h"
 #include "../include/Record.h"
 
-using namespace std;
-
 // Returns a vector of Record objects storing the data from the input file
-vector<Record> readFromFile(string filename) {
+std::vector<Record> readFromFile(std::string filename) {
+    std::vector<Record> records;
+    std::ifstream input(filename);
 
-    vector<Record> records;
+	// Check if file is opened:
+	if (!input) {
+		throw std::runtime_error{"The file: " + filename + "could not be opened!"};
+	}
 
-    ifstream input(filename);
-    string line;
-
+    std::string line{};
     while(getline(input, line)) {
-
         int    year      = stoi(line.substr(0, 4));
         int    month     = stoi(line.substr(5, 3));
         int    day       = stoi(line.substr(8, 3));
@@ -28,12 +28,10 @@ vector<Record> readFromFile(string filename) {
         double tempUrban = stod(line.substr(17, 6));
         int    dataId    = stoi(line.substr(23, 2));
 
-        Record record = Record(year, month, day, temp, tempUrban, dataId);
-
+		Record record = Record(year, month, day, temp, tempUrban, dataId);
         records.push_back(record);
-    }
-
-    cout << "size of records: " << records.size() << endl;
-
+	}
+    
+    std::cout << "size of records: " << records.size() << endl;
     return records;
 }
