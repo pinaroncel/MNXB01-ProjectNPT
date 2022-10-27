@@ -20,7 +20,7 @@
 using namespace std;
 
 // Saves a graph of all recorded temperatures on the given day
-void make_graph_day(const years[], const temps[]) {
+void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     
     auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(temps[0]));
@@ -47,7 +47,7 @@ void make_graph_day(const years[], const temps[]) {
 }
 
 // Saves a graph of averages temperatures for every year
-void make_graph_ave(const years[], const temps[]) {
+void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps) {
     
     auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(aveTemps[0]));
@@ -73,7 +73,7 @@ void make_graph_ave(const years[], const temps[]) {
 }
 
 // Saves a graph of the hottest, the coldest, and the difference between the two for every year
-void make_graph_min_max_diff(const years[], const minTemps[], const maxTemps[], const diffTemps[]) {
+void make_graph_min_max_diff(const vector<double>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
     
     auto c         = new TCanvas("c", "canvas for g");
     TGraph *g_min  = new TGraph(years.size(), &(years[0]), &(minTemps[0]));
