@@ -2,3 +2,6 @@
 inc/.DS_Store
 src/.DS_Store
 .DS_Store
+*.d
+*.so
+*.pcm
