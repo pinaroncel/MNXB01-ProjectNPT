@@ -14,6 +14,8 @@
 #include <TF1.h>
 #include <TFrame.h>
 #include <TGraph.h>
+#include <TLegend.h>
+#include <TMultiGraph.h>
 #include <TPad.h>
 #include <TString.h>
 #include <TStyle.h>
@@ -23,7 +25,7 @@ using namespace std;
 // Saves a graph of all recorded temperatures on the given day
 void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     
-    auto c    = new TCanvas("c", "canvas for g");
+    auto c_xmas = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(temps[0]));
     
     g->SetTitle("Temperature on Christmas day");
@@ -31,6 +33,8 @@ void make_graph_day(const vector<double>& years, const vector<double>& temps) {
 
     g->GetXaxis()->SetTitle("Year");
     g->GetYaxis()->SetTitle("Temperature");
+    g->GetXaxis()->CenterTitle(true);
+    g->GetYaxis()->CenterTitle(true);
 
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
@@ -44,19 +48,24 @@ void make_graph_day(const vector<double>& years, const vector<double>& temps) {
 
     g->Draw();
 
-    c->SaveAs("../out/graph_christmas.png");
+    c_xmas->SaveAs("out/graph_christmas.png");
+
+    cout << "graph_christmas done" << endl;
 }
 
 // Saves a graph of averages temperatures for every year
 void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps) {
     
-    auto c    = new TCanvas("c", "canvas for g");
+    auto c_ave = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(aveTemps[0]));
     
     g->SetLineColor(4);
     g->SetTitle("Average temperature per year");
     g->GetXaxis()->SetTitle("Year");
     g->GetYaxis()->SetTitle("Temperature");
+    g->GetXaxis()->CenterTitle(true);
+    g->GetYaxis()->CenterTitle(true);
+
 
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
@@ -70,17 +79,23 @@ void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps)
 
     g->Draw();
 
-    c->SaveAs("../out/graph_aveTemps.png");
+    c_ave->SaveAs("out/graph_aveTemps.png");
+
+    cout << "graph_aveTemps done" << endl;
 }
 
 // Saves a graph of the hottest, the coldest, and the difference between the two for every year
 void make_graph_min_max_diff(const vector<double>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
     
-    auto c         = new TCanvas("c", "canvas for g");
+    auto c_min_max_diff = new TCanvas("c", "canvas for g");
     TGraph *g_min  = new TGraph(years.size(), &(years[0]), &(minTemps[0]));
     TGraph *g_max  = new TGraph(years.size(), &(years[0]), &(maxTemps[0]));
     TGraph *g_diff = new TGraph(years.size(), &(years[0]), &(diffTemps[0]));
     
+    g_min->SetName("g_min");
+    g_max->SetName("g_max");
+    g_diff->SetName("g_diff");
+
     g_min->SetTitle("Minimum temperature per year");
     g_max->SetTitle("Maximum temperature per year");
     g_diff->SetTitle("Difference btw the hottest and coldest days per year");
@@ -89,9 +104,6 @@ void make_graph_min_max_diff(const vector<double>& years, const vector<double>& 
     g_max->SetLineColor(2);
     g_diff->SetLineColor(7);
     
-    g_min->GetXaxis()->SetTitle("Year");
-    g_min->GetYaxis()->SetTitle("Temperature");
-
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
     gStyle->SetPadBottomMargin(0.15);
@@ -102,9 +114,27 @@ void make_graph_min_max_diff(const vector<double>& years, const vector<double>& 
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
 
-    g_min->Draw();
-    g_max->Draw();
-    g_diff->Draw();
+    TMultiGraph *mg = new TMultiGraph();
 
-    c->SaveAs("../out/graph_min_max_diff.png");
+    mg->Add(g_min);
+    mg->Add(g_max);
+    mg->Add(g_diff);
+
+    mg->GetXaxis()->SetTitle("Year");
+    mg->GetYaxis()->SetTitle("Temperature");
+    mg->GetXaxis()->CenterTitle(true);
+    mg->GetYaxis()->CenterTitle(true);
+
+    mg->Draw("APC");
+
+    auto legend = new TLegend(0.8, 0.8, 0.99, 0.99);
+    legend->SetHeader("The Legend Title","C");
+    legend->AddEntry("g_min","Minimum temperature per year","L");
+    legend->AddEntry("g_max","Maximum temperature per year","L");
+    legend->AddEntry("g_diff","Difference btw the hottest and coldest days per year","L");
+    legend->Draw();
+
+    c_min_max_diff->SaveAs("out/graph_min_max_diff.png");
+
+    cout << "graph_min_max_diff done" << endl;
 }
