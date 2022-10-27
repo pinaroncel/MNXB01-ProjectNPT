@@ -8,27 +8,28 @@
 #include "../include/Plot.h"
 #include "../include/Record.h"
 
-#include <TPad.h>
-#include <TFrame.h>
-#include <TStyle.h>
-#include <TString.h>
+#include <TCanvas.h>
 #include <TF1.h>
-#include "TH1.h"
-#include "TCanvas.h"
-#include "TStyle.h"
-#include "TH2.h"
-#include "TGraph.h"
+#include <TFrame.h>
+#include <TGraph.h>
+#include <TPad.h>
+#include <TString.h>
+#include <TStyle.h>
 
 using namespace std;
 
+// Saves a graph of all recorded temperatures on the given day
 void make_graph_day(const vector<double>& years, const vector<double>& temps) {
-    auto c = new TCanvas("c", "canvas for g");
-    // TGraph *g = new TGraph(years.size(), years, temps);
+    
+    auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(temps[0]));
-    g -> SetTitle("Temperature on Christmas");
+    
+    g -> SetTitle("Temperature on Christmas day");
     g -> SetLineColor(4);
+
     g -> GetXaxis() -> SetTitle("Year");
     g -> GetYaxis() -> SetTitle("Temperature");
+
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
     gStyle->SetPadBottomMargin(0.15);
@@ -38,18 +39,23 @@ void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
+
     g->Draw();
-    c->SaveAs("/out/graph_Christmas.png");
+
+    c->SaveAs("../out/graph_christmas.png");
 }
 
+// Saves a graph of averages temperatures for every year
 void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps) {
-    auto c = new TCanvas("c", "canvas for g");
-    // TGraph *g = new TGraph(years.size(), years, temps);
+    
+    auto c    = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), &(years[0]), &(aveTemps[0]));
+    
     g -> SetLineColor(4);
-    g -> SetTitle -> ("Average temperature");
+    g -> SetTitle() -> ("Average temperature per year");
     g -> GetXaxis() -> SetTitle("Year");
     g -> GetYaxis() -> SetTitle("Temperature");
+
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
     gStyle->SetPadBottomMargin(0.15);
@@ -59,26 +65,31 @@ void make_graph_ave(const vector<double>& years, const vector<double>& aveTemps)
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
+
     g->Draw();
-    c->SaveAs("/out/graph_av.png");
+
+    c->SaveAs("../out/graph_aveTemps.png");
 }
 
-void make_graph_min_max(const vector<double>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
-    auto c = new TCanvas("c", "canvas for g");
-    // TGraph *gr_min = new TGraph (years.size(), years, minTemps);
-    // TGraph *gr_max = new TGraph (years.size(), years, maxTemps);
-    // TGraph *gr_diff = new TGraph (years.size(), years, diffTemps);
-    TGraph *gr_min = new TGraph(years.size(), &(years[0]), &(minTemps[0]));
-    TGraph *gr_max = new TGraph(years.size(), &(years[0]), &(maxTemps[0]));
-    TGraph *gr_diff = new TGraph(years.size(), &(years[0]), &(diffTemps[0]));
-    gr_min -> SetTitle("The minimum temperature of the year");
-    gr_max -> SetTitle("The maximum temperature of the year");
-    gr_diff -> SetTitle("The difference between the minimum and maximum temperatures");
-    gr_min -> SetLineColor(4);
-    gr_max -> SetLineColor(2);
-    gr_diff -> SetLineColor(7);
-    gr_min -> GetXaxis() -> SetTitle("Year");
-    gr_min -> GetYaxis() -> SetTitle("Temperature");
+// Saves a graph of the hottest, the coldest, and the difference between the two for every year
+void make_graph_min_max_diff(const vector<double>& years, const vector<double>& minTemps, const vector<double>& maxTemps, const vector<double>& diffTemps) {
+    
+    auto c         = new TCanvas("c", "canvas for g");
+    TGraph *g_min  = new TGraph(years.size(), &(years[0]), &(minTemps[0]));
+    TGraph *g_max  = new TGraph(years.size(), &(years[0]), &(maxTemps[0]));
+    TGraph *g_diff = new TGraph(years.size(), &(years[0]), &(diffTemps[0]));
+    
+    g_min -> SetTitle("Minimum temperature per year");
+    g_max -> SetTitle("Maximum temperature per year");
+    g_diff -> SetTitle("Difference btw the hottest and coldest days per year");
+    
+    g_min -> SetLineColor(4);
+    g_max -> SetLineColor(2);
+    g_diff -> SetLineColor(7);
+    
+    g_min -> GetXaxis() -> SetTitle("Year");
+    g_min -> GetYaxis() -> SetTitle("Temperature");
+
     gStyle->SetCanvasColor(0);
     gStyle->SetPadTopMargin(0.15); 
     gStyle->SetPadBottomMargin(0.15);
@@ -88,8 +99,10 @@ void make_graph_min_max(const vector<double>& years, const vector<double>& minTe
     gStyle->SetPadGridX(true);     
     gStyle->SetPadGridY(true);
     gStyle->SetPadColor(0);
-    gr_min->Draw();
-    gr_max->Draw();
-    gr_diff->Draw();
-    c->SaveAs("/out/graph_min_max.png");
+
+    g_min->Draw();
+    g_max->Draw();
+    g_diff->Draw();
+
+    c->SaveAs("../out/graph_min_max_diff.png");
 }
