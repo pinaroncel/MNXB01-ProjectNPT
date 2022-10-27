@@ -10,14 +10,8 @@
 #include <TStyle.h>
 #include <TString.h>
 #include <TF1.h>
-#include <TH1.h>
-#include "TFile.h"
-#include "TTree.h"
 #include "TH1.h"
 #include "TCanvas.h"
-#include "TPad.h"
-#include "TClonesArray.h"
-#include "TParticle.h"
 #include "TStyle.h"
 #include "TH2.h"
 #include "TGraph.h"
