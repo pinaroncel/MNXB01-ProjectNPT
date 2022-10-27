@@ -9,7 +9,7 @@
 #include "Record.h"
 
 // Returns a vector of recorded temperatures on the given day
-vector<double> tempOnDay(const vector<Record>& records, int month, int day);
+vector<double> tempsOnDay(const vector<Record>& records, int month, int day);
 
 // Returns the nbr of days of the given month
 int nbrDaysPerMonth(int month);

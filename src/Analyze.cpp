@@ -12,7 +12,7 @@
 using namespace std;
 
 // Returns a vector of recorded temperatures on the given day
-vector<double> tempOnDay(const vector<Record>& records, int month, int day) {
+vector<double> tempsOnDay(const vector<Record>& records, int month, int day) {
     vector<double> temps;
     for (auto record : records) {
         if (record.month() == month && record.day() == day) {
