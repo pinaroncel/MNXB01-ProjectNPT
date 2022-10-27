@@ -149,11 +149,11 @@ vector<double> diffTempsPerYear(const vector<Record>& records) {
 }
 
 // Converts a vector into an array
-double* convertVtoA(const vector<double>& vector) {
-    cout << "size of vector: " << vector.size() << endl;
-    int n = vector.size();
-    double array[n];
-    copy(vector.begin(), vector.end(), array);
-    return array;
-    cout << "size of array: " << n << endl;
-}
+// double* convertVtoA(const vector<double>& vector) {
+//     cout << "size of vector: " << vector.size() << endl;
+//     int n = vector.size();
+//     double array[n];
+//     copy(vector.begin(), vector.end(), array);
+//     return array;
+//     cout << "size of array: " << n << endl;
+// }
