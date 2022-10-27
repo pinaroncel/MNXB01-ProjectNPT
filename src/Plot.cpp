@@ -22,6 +22,7 @@ void make_graph_av(const vector<double>& years, const vector<double>& temps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), years, temps);
     g -> SetLineColor(4);
+    g -> SetTitle -> ("Average temperature");
     g -> GetXaxis() -> SetTitle("Year");
     g -> GetYaxis() -> SetTitle("Temperature");
     gStyle->SetCanvasColor(0);
@@ -41,6 +42,7 @@ void make_graph_av(const vector<double>& years, const vector<double>& temps) {
 void make_graph_day(const vector<double>& years, const vector<double>& temps) {
     auto c = new TCanvas("c", "canvas for g");
     TGraph *g = new TGraph(years.size(), years, temps);
+    g -> SetTitle("Temperature on Christmas");
     g -> SetLineColor(4);
     g -> GetXaxis() -> SetTitle("Year");
     g -> GetYaxis() -> SetTitle("Temperature");
@@ -62,7 +64,9 @@ void make_graph_min_max(const vector<double>& years, const vector<double>& minTe
     TGraph *gr_min = new TGraph (years.size(), years, minTemps);
     TGraph *gr_max = new TGraph (years.size(), years, maxTemps);
     TGraph *gr_diff = new TGraph (years.size(), years, diffTemps);
-    gr_min -> SetTitle("The minimum and maximum temperature of the year");
+    gr_min -> SetTitle("The minimum temperature of the year");
+    gr_max -> SetTitle("The maximum temperature of the year");
+    gr_diff -> SetTitle("The difference between the minimum and maximum temperatures");
     gr_min -> SetLineColor(4);
     gr_max -> SetLineColor(2);
     gr_diff -> SetLineColor(7);
