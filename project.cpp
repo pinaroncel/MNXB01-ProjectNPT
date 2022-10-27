@@ -1,4 +1,5 @@
 
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +11,7 @@
 
 using namespace std;
 
-int main() {
+void project() {
 
 // -----------------------------------------------------------------------------
 // STEP 0 : program start
@@ -29,13 +30,13 @@ int main() {
 /* STEP 2 : ANALYZE -> by Pinar
  * analyze data and create vectors to be used in plotting */
 // -----------------------------------------------------------------------------
-    // vector<double> temps     = tempsOnDay(records, 12, 24);
-    // vector<double> years     = getAllYears(records);
-    // vector<double> aveTemps  = aveTempsPerYear(records);
-    // vector<double> minTemps  = minTempsPerYear(records);
-    // vector<double> maxTemps  = maxTempsPerYear(records);
-    // vector<double> diffTemps = diffTempsPerYear(records);
-    // vector<vector<double>> tempss = tempPerDay(records);
+    vector<double> temps     = tempsOnDay(records, 12, 25);
+    vector<double> years     = getAllYears(records);
+    vector<double> aveTemps  = aveTempsPerYear(records);
+    vector<double> minTemps  = minTempsPerYear(records);
+    vector<double> maxTemps  = maxTempsPerYear(records);
+    vector<double> diffTemps = diffTempsPerYear(records);
+    vector<vector<double>> tempss = tempPerDay(records);
 
     // double* tempsArray     = convertVtoA(temps);
     // double* yearsArray     = convertVtoA(years);
@@ -48,13 +49,13 @@ int main() {
 /* STEP 3 : PLOT -> by Tilde
  * plot and save graphs using the processed data */
 // -----------------------------------------------------------------------------
-    // make_graph_day(years, temps);
-    // make_graph_ave(years, aveTemps);
-    // make_graph_min_max_diff(years, minTemps, maxTemps, diffTemps);
+    make_graph_day(years, temps);
+    make_graph_ave(years, aveTemps);
+    make_graph_min_max_diff(years, minTemps, maxTemps, diffTemps);
 
 // -----------------------------------------------------------------------------
     // STEP 4 : program end
 // -----------------------------------------------------------------------------
     cout << " ... ending ProjectNPT ... " << endl;
-    return 0;
+    // return 0;
 }
