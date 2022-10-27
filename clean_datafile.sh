@@ -67,14 +67,12 @@ else
 	exit 1;
 fi
 
-STARTLINE=$(grep -n 'Datum' $DATAFILE | cut -d ":" -f 1) # Variable {STARTLINE} contains line number before data starts.
-STARTDATA=$(($STARTLINE + 1)) # Variable {STARTDATA} contains line number where data starts.
-
-# Case: What if a file with clean data already? HOw does script proceed?
+LASTLINE=$(grep -n 'Datum' $DATAFILE | cut -d ":" -f 1) # Variable {LASTLINE} contains line number before data starts.
+STARTDATA=$(($LASTLINE + 1)) # Variable {STARTDATA} contains line number where data starts.
 
 # Manipulating clean_$DATAFILE file data set to the desired state
 echo "Cleaning raw data set..."
-tail -n -$STARTDATA $DATAFILE | cut -d ";" -f 1-4 | sed 's/;/,/g' > clean_$DATAFILE
+tail -n -$STARTDATA $DATAFILE | cut -d ";" -f 1-4 | sed 's/;/ /g' > clean_$DATAFILE
 
 echo
 echo "Cleaned data is stored in clean_$DATAFILE."
