@@ -19,5 +19,5 @@ MNXB01 Project by Nikolei, Pinar, and Tilde
 - src     : contains source code files
 
 ## How to execute
-(1) Start ROOT and wait for the ROOT interpreter to complete the compilation steps
+(1) Start `ROOT` and wait for ROOT interpreter to complete compilation steps
 (2) Call `project()` method
