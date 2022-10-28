@@ -17,3 +17,7 @@ MNXB01 Project by Nikolei, Pinar, and Tilde
 - include : contains header files
 - out     : contains output files
 - src     : contains source code files
+
+## How to execute
+(1) Start ROOT and wait for the ROOT interpreter to complete the compilation steps
+(2) Call `project()` method
