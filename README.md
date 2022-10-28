@@ -5,7 +5,7 @@ MNXB01 Project by Nikolei, Pinar, and Tilde
 ## Project Directory
 
 - `project.cpp`       : This is our main source code file
-- `rootlogon.C`       : Starting ROOT in the project directory, ROOT will execute and run `project()` method from `project.cpp`
+- `rootlogon.C`       : Start ROOT in the project directory, ROOT will execute and run `project()` method from `project.cpp`
 - `clean_datafile.sh` : Processes raw data file by removing unwanted text lines, unexpected data and formating of data, ready to be used in the program
 - `README.md`
 - `ChangeLog`
