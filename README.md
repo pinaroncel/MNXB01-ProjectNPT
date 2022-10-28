@@ -2,8 +2,7 @@
 # MNXB01-ProjectNPT
 MNXB01 Project by Nikolei, Pinar, and Tilde
 
-## Project Directory Structure
-### Project Directory
+## Project Directory
 
 - project.cpp       : This is our main source code file
 - rootlogon.C       : Starting ROOT in the project directory, ROOT will execute and run functions from `project.cpp`
@@ -12,7 +11,7 @@ MNXB01 Project by Nikolei, Pinar, and Tilde
 - ChangeLog
 - License
 
-### Directories within Project
+## Directories within Project
 - doc     : contains documentation files
 - in      : contains input files
 - include : contains header files
