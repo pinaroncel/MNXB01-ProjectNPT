@@ -12,11 +12,11 @@ MNXB01 Project by Nikolei, Pinar, and Tilde
 - `License`
 
 ## Directories within Project
-- doc     : contains documentation files
-- in      : contains input files
-- include : contains header files
-- out     : contains output files
-- src     : contains source code files
+- `doc`     : contains documentation files
+- `in`      : contains input files
+- `include` : contains header files
+- `out`     : contains output files
+- `src`     : contains source code files
 
 ## How to execute
 (1) Start `ROOT` and wait for ROOT interpreter to complete compilation steps
